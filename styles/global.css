@@ -1,8 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;500;600&display=swap");
 
 body {
   font-family: "Archivo", sans-serif;
+  font-size: 1rem;
 }
