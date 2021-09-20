@@ -1,3 +1,9 @@
+import FeatureItem from "../components/FeatureItem";
+
 export default function Home() {
-  return <p>Home Page</p>;
+  return (
+    <section>
+      <FeatureItem />
+    </section>
+  );
 }
