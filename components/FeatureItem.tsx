@@ -40,8 +40,8 @@ const FeatureItem = () => {
         </div>
         <div className="md:flex-40 md:text-right mt-8 md:mt-0">
           <h3 className="text-xl font-bold mb-4">People also buy</h3>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-1.5">
-            <div className=" h-[150px] relative mr-4">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-2.5 md:gap-2">
+            <div className="w-full h-[150px] relative mr-4">
               <Image
                 src="https://res.cloudinary.com/estherseyi/image/upload/v1632166063/bejamas_assessment/p7321vbh5vgo0tklalwh.jpg"
                 layout="fill"
@@ -50,7 +50,7 @@ const FeatureItem = () => {
                 // unoptimized
               />
             </div>
-            <div className=" h-[150px] relative mr-4">
+            <div className="w-full h-[150px] relative mr-4">
               <Image
                 src="https://res.cloudinary.com/estherseyi/image/upload/v1632166081/bejamas_assessment/k5gvlvv5faws0vvvosci.jpg"
                 layout="fill"
@@ -59,7 +59,7 @@ const FeatureItem = () => {
                 // unoptimized
               />
             </div>
-            <div className=" h-[150px] relative">
+            <div className="w-full h-[150px] relative">
               <Image
                 src="https://res.cloudinary.com/estherseyi/image/upload/v1632166074/bejamas_assessment/iscktycv8ohw6u1ht4x1.jpg"
                 layout="fill"
