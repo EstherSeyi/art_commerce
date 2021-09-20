@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="pt-4">
-        <div className="flex justify-between w-11/12 mx-auto border-b-2 border-grey-50 pb-3">
+        <div className="flex justify-between w-11/12 mx-auto border-b border-grey-50 pb-3">
           <Logo className="w-20" />
           <div className="relative">
             <Cart className="w-4 sm:w-6" />
