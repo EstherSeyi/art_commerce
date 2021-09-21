@@ -18,10 +18,13 @@ const FeatureItem = () => {
             alt="dog sitting"
             // unoptimized
           />
+          <p className="bg-white text-black px-4 py-2 md:px-6 md:py-3 absolute bottom-0 left-0 text-sm">
+            Photo of the day
+          </p>
         </div>
       </div>
       <div className="flex md:justify-between flex-col md:flex-row mt-8">
-        <div className="md:flex-55">
+        <div className="md:flex-45">
           <h3 className="mb-2 text-xl font-bold">
             About the Samurai King Resting
           </h3>

@@ -23,13 +23,16 @@ module.exports = {
     extend: {
       flex: {
         20: "0 0 20%",
-        55: "0 0 55%",
+        45: "0 0 45%",
         40: "0 0 40%",
         75: "0 0 75%",
       },
       gridTemplateColumns: {
-        auto: "repeat(auto-fit, minmax(250px, 1fr))",
+        auto: "repeat(auto-fit, minmax(200px, 1fr))",
         automax: "repeat(auto-fit, minmax(250px, 275px))",
+      },
+      height: {
+        main: "calc(100vh - 1rem - 24px)",
       },
     },
   },
