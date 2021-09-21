@@ -46,6 +46,11 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     const cart = getCart();
     if (cart?.item?.length) {
       setCart(getCart());
+    } else {
+      setCart({
+        items: [],
+        total: 0,
+      });
     }
   }, [getCart()?.items?.length, getCart()?.total]);
 
