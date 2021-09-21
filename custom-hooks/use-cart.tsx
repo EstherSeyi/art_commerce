@@ -34,13 +34,20 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     items: [],
   });
   const [cartIsOpen, setCartOpen] = useState(false);
+  const getCart = () => {
+    if (typeof window !== "undefined" && window?.localStorage) {
+      const cartString = localStorage.getItem("cart");
+      const cart = JSON.parse(cartString ?? "");
+      return cart;
+    }
+  };
 
   useEffect(() => {
     const cart = getCart();
     if (cart) {
       setCart(getCart());
     }
-  }, [cart.items.length, cart.total]);
+  }, [getCart()?.items?.length, getCart()?.total]);
 
   const addToCart = (item: any) => {
     const newCart = { items: [...cart.items, item], total: ++cart.total };
@@ -65,14 +72,6 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
     return setCart(newCart);
-  };
-
-  const getCart = () => {
-    if (typeof window !== "undefined" && window?.localStorage) {
-      const cartString = localStorage.getItem("cart");
-      const cart = JSON.parse(cartString ?? "");
-      return cart;
-    }
   };
 
   return (
