@@ -70,7 +70,12 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
   const getCart = () => {
     if (typeof window !== "undefined" && window?.localStorage) {
       const cartString = localStorage.getItem("cart");
-      const cart = JSON.parse(cartString ?? "");
+      const cart = cartString
+        ? JSON.parse(cartString)
+        : {
+            items: [],
+            total: 0,
+          };
       return cart;
     }
   };
