@@ -15,7 +15,7 @@ const CartContext = createContext<{
   };
   clearCart?: any;
   addToCart?: any;
-  cartIsOpen: boolean;
+  cartIsOpen?: boolean;
   setCartOpen?: any;
 }>({
   cart: {
@@ -34,25 +34,13 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     items: [],
   });
   const [cartIsOpen, setCartOpen] = useState(false);
-  const getCart = () => {
-    if (typeof window !== "undefined" && window?.localStorage) {
-      const cartString = localStorage.getItem("cart");
-      const cart = JSON.parse(cartString ?? "");
-      return cart;
-    }
-  };
 
   useEffect(() => {
     const cart = getCart();
-    if (cart?.item?.length) {
+    if (cart) {
       setCart(getCart());
-    } else {
-      setCart({
-        items: [],
-        total: 0,
-      });
     }
-  }, [getCart()?.items?.length, getCart()?.total]);
+  }, [cart.items.length, cart.total]);
 
   const addToCart = (item: any) => {
     const newCart = { items: [...cart.items, item], total: ++cart.total };
@@ -60,7 +48,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     if (typeof window !== "undefined" && window?.localStorage) {
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
-    setCartOpen(true);
+
     setCart((prevState) => ({
       ...prevState,
       ...newCart,
@@ -72,11 +60,19 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
       items: [],
       total: 0,
     };
-    setCartOpen(false);
+
     if (typeof window !== "undefined" && window?.localStorage) {
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
     return setCart(newCart);
+  };
+
+  const getCart = () => {
+    if (typeof window !== "undefined" && window?.localStorage) {
+      const cartString = localStorage.getItem("cart");
+      const cart = JSON.parse(cartString ?? "");
+      return cart;
+    }
   };
 
   return (
