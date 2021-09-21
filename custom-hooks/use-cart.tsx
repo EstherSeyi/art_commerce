@@ -15,7 +15,7 @@ const CartContext = createContext<{
   };
   clearCart?: any;
   addToCart?: any;
-  cartIsOpen?: boolean;
+  cartIsOpen: boolean;
   setCartOpen?: any;
 }>({
   cart: {
