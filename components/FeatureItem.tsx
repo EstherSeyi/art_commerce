@@ -1,21 +1,47 @@
 import Image from "next/image";
 
+import useCart from "../custom-hooks/use-cart";
+
+const featureItem = {
+  name: "Samurai King Resting",
+  category: "Pets",
+  price: 100,
+  currency: "USD",
+  image: {
+    src: "https://res.cloudinary.com/estherseyi/image/upload/v1632157233/bejamas_assessment/jzy9b3gfumz0caurfoyo.jpg",
+    alt: "dog sitting",
+  },
+  bestseller: false,
+  featured: true,
+  dimension: {
+    width: 1020,
+    height: 1020,
+  },
+  size: "15 mb",
+  details:
+    "So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book. So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely scrambled part of Cicero's De Finibus in order to provide placeholder text to mockup various fonts for a type specimen book.So how did the classical Latin become so incoherent? According to McClintock.",
+};
+
 const FeatureItem = () => {
+  const { addToCart } = useCart();
   return (
     <section>
       <div className="flex justify-between mb-8">
-        <h2 className="font-semibold text-3xl">Samurai King Resting</h2>
-        <button className="bg-black py-1 px-4 font-medium hidden md:block">
+        <h2 className="font-semibold text-3xl">{featureItem.name}</h2>
+        <button
+          className="bg-black py-1 px-4 font-medium hidden md:block"
+          onClick={() => addToCart(featureItem)}
+        >
           <span className="text-xl text-white">ADD TO CART</span>
         </button>
       </div>
       <div>
         <div className="w-full h-[200px] md:h-[400px] relative">
           <Image
-            src="https://res.cloudinary.com/estherseyi/image/upload/v1632157233/bejamas_assessment/jzy9b3gfumz0caurfoyo.jpg"
+            src={featureItem.image.src}
             layout="fill"
             objectFit="cover"
-            alt="dog sitting"
+            alt={featureItem.image.alt}
             // unoptimized
           />
           <p className="bg-white text-black px-4 py-2 md:px-6 md:py-3 absolute bottom-0 left-0 text-sm">
@@ -26,20 +52,12 @@ const FeatureItem = () => {
       <div className="flex md:justify-between flex-col md:flex-row mt-8">
         <div className="md:flex-45">
           <h3 className="mb-2 text-xl font-bold">
-            About the Samurai King Resting
+            About the {featureItem.name}
           </h3>
-          <p className="mb-2 text-grey-100 text-xl">Pets</p>
-          <p className="font-thin text-justify">
-            So how did the classical Latin become so incoherent? According to
-            McClintock, a 15th century typesetter likely scrambled part of
-            Cicero's De Finibus in order to provide placeholder text to mockup
-            various fonts for a type specimen book.So how did the classical
-            Latin become so incoherent? According to McClintock, a 15th century
-            typesetter likely scrambled part of Cicero's De Finibus in order to
-            provide placeholder text to mockup various fonts for a type specimen
-            book.So how did the classical Latin become so incoherent? According
-            to McClintock.
+          <p className="mb-2 text-grey-100 text-xl capitalize">
+            {featureItem.category}
           </p>
+          <p className="font-thin text-justify">{featureItem.details}</p>
         </div>
         <div className="md:flex-40 md:text-right mt-8 md:mt-0">
           <h3 className="text-xl font-bold mb-4">People also buy</h3>
@@ -75,8 +93,11 @@ const FeatureItem = () => {
           <div className="font-thin mt-6 md:mt-10">
             <p className="font-bold text-xl mb-2 ">Details</p>
 
-            <p>Size: 1020 x 1020 pixel</p>
-            <p>Size: 15 mb</p>
+            <p>
+              Dimension: {featureItem.dimension.height} x{" "}
+              {featureItem.dimension.width}
+            </p>
+            <p>Size: {featureItem.size}</p>
           </div>
         </div>
       </div>
