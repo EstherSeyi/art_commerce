@@ -47,7 +47,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     if (cart) {
       setCart(getCart());
     }
-  }, [getCart()?.items.length, getCart().total]);
+  }, [getCart()?.items?.length, getCart()?.total]);
 
   const addToCart = (item: any) => {
     const newCart = { items: [...cart.items, item], total: ++cart.total };
