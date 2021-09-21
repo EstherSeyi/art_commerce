@@ -34,7 +34,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </header>
       <main className="w-full h-full overflow-hidden">
         <div className="w-full box-content pr-[17px] overflow-y-scroll">
-          <div className="w-11/12 sm:w-10/12 max-w-[1440px] mx-auto pt-5 h-main">
+          <div className="w-11/12 sm:w-10/12 max-w-[1440px] mx-auto pt-5 min-h-main h-main">
             {children}
           </div>
         </div>
