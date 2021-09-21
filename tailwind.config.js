@@ -34,6 +34,9 @@ module.exports = {
       height: {
         main: "calc(100vh - 1rem - 24px)",
       },
+      minHeight: {
+        main: "calc(100vh - 1rem - 24px)",
+      },
     },
   },
   variants: {
