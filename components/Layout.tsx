@@ -25,7 +25,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <Cart className="w-4 sm:w-6" />
             </button>
 
-            <span className="text-white bg-black text-center absolute px-1 -right-1 -bottom-2 text-[7px] sm:text-[9px]">
+            <span className="text-white bg-black text-center absolute px-1 -right-1 -bottom-0.5 text-[7px] sm:text-[9px]">
               1
             </span>
           </div>
