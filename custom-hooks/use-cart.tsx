@@ -44,7 +44,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const cart = getCart();
-    if (cart) {
+    if (cart?.item?.length) {
       setCart(getCart());
     }
   }, [getCart()?.items?.length, getCart()?.total]);
