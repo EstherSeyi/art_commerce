@@ -49,6 +49,8 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
 
+    setCartOpen(true);
+
     setCart((prevState) => ({
       ...prevState,
       ...newCart,
@@ -64,6 +66,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     if (typeof window !== "undefined" && window?.localStorage) {
       localStorage.setItem("cart", JSON.stringify(newCart));
     }
+    setCartOpen(false);
     return setCart(newCart);
   };
 
