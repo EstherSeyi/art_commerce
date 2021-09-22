@@ -2,7 +2,7 @@ export type Cart = {
   name: string;
   category: string;
   price: number;
-  currency: number;
+  currency: string;
   image: {
     src: string;
     alt: string;
@@ -10,4 +10,5 @@ export type Cart = {
   bestseller: boolean;
   featured: boolean;
   details?: string;
+  id?: number;
 };
