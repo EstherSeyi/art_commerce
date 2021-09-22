@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import queryString from "query-string";
 
 import FeatureItem from "../components/FeatureItem";
 import FilterSection from "../components/FilterSection";
@@ -11,12 +13,10 @@ import VectorRight from "../assets/vector-right.svg";
 import { i18nCurrencyFormat } from "../helpers/format-curency";
 import useCart from "../custom-hooks/use-cart";
 import { getProducts } from "../services/firebase";
-import { useRouter } from "next/dist/client/router";
 
 export default function Home() {
-  const { push, query } = useRouter();
+  const { push, query, pathname } = useRouter();
   const [products, setProducts] = useState<any[]>([]);
-  const [sortDir, setSortDir] = useState("desc");
   const { addToCart } = useCart();
   const [showATC, setShowATC] = useState<{
     action: boolean;
@@ -35,24 +35,58 @@ export default function Home() {
 
   useEffect(() => {
     const returnProducts = async () => {
-      const data = await getProducts(query.last, query.by, query.direction);
+      const data = await getProducts(
+        query.last,
+        query.by,
+        query.direction,
+        query.first,
+        query.type
+      );
       setProducts(data);
     };
     returnProducts();
-  }, [query.last]);
+  }, [query.last, query.by, query.direction, query.first]);
 
   const handleNext = () => {
-    push(`/?last=${products[products.length - 1].name}`, undefined, {
+    if (products?.length === 6) {
+      query["last"] =
+        query.by === "name"
+          ? products[products.length - 1].name
+          : query.by === "price"
+          ? products[products.length - 1].price
+          : products[products.length - 1].name;
+      query["type"] = "next";
+      push(`${pathname}?${queryString.stringify(query)}`, undefined, {
+        shallow: true,
+      });
+    }
+    return;
+  };
+  const handlePrev = () => {
+    query["type"] = "prev";
+    query["first"] =
+      query.by === "name"
+        ? products[0].name
+        : query.by === "price"
+        ? products[0].price
+        : products[0].name;
+    push(`${pathname}?${queryString.stringify(query)}`, undefined, {
       shallow: true,
     });
   };
 
-  const handleSort = (by = "name") => {
-    setSortDir((prevState) => {
-      return prevState === "asc" ? "desc" : "asc";
+  const handleSort = () => {
+    query["direction"] = query.direction === "asc" ? "desc" : "asc";
+    push(`${pathname}?${queryString.stringify(query)}`, undefined, {
+      shallow: true,
     });
-    console.log(by, "dtfghj");
-    push(`/?by=${by}&direction=${sortDir}`, undefined, {
+  };
+
+  const handleSortByChange = (e: any) => {
+    // console.log(e.target.value);
+    query["by"] = e.target.value;
+    query["direction"] = query.direction === "asc" ? "desc" : "asc";
+    push(`${pathname}?${queryString.stringify(query)}`, undefined, {
       shallow: true,
     });
   };
@@ -70,13 +104,16 @@ export default function Home() {
           <div className="hidden md:flex items-center font-light">
             <SortIcon
               className="h-3 w-3 mr-2 cursor-pointer"
-              onClick={() => handleSort("name")}
+              onClick={() => handleSort()}
             />
             <span className="mr-2 text-grey-150">Sort By</span>
             <div className="flex items-center">
-              <select className="mr-1 focus:outline-none font-thin">
+              <select
+                className="mr-1 focus:outline-none font-thin"
+                onChange={handleSortByChange}
+              >
                 <option value="price">Price</option>
-                <option value="a-z">A - Z</option>
+                <option value="name">A - Z</option>
               </select>
             </div>
           </div>
@@ -87,75 +124,92 @@ export default function Home() {
         <div className="flex md:justify-between">
           <FilterSection />
           <div className="w-full md:flex-75">
-            <div
-              className={` grid ${
-                products?.length > 1 && products?.length < 3
-                  ? "grid-cols-automax"
-                  : "grid-cols-auto"
-              }  gap-12
+            {products?.length ? (
+              <div
+                className={` grid ${
+                  products?.length > 1 && products?.length < 3
+                    ? "grid-cols-automax"
+                    : "grid-cols-auto"
+                }  gap-12
           `}
-            >
-              {products.map((item, index, array) => {
-                const isLast = index === array.length - 1;
+              >
+                {products.map((item, index, array) => {
+                  const isLast = index === array.length - 1;
 
-                return (
-                  <div
-                    key={item.docId}
-                    className={`w-full md:max-w-[250px] ${
-                      !isLast ? "md:mr-12" : ""
-                    }`}
-                    onMouseEnter={() => handleShowingATC(true, index)}
-                    onMouseLeave={() => handleShowingATC(false, index)}
-                  >
-                    <div className="w-full h-[300px] relative mb-2">
-                      <Image
-                        src={item.image.src}
-                        layout="fill"
-                        objectFit="cover"
-                        alt={item.image.alt}
-                        // unoptimized
-                      />
-                      <p
-                        aria-roledescription="button"
-                        className={`${
-                          showATC.action && showATC.index === index
-                            ? "block"
-                            : "hidden"
-                        } absolute bg-black text-white left-0 right-0 text-center uppercase font-thin bottom-0 py-1 cursor-pointer`}
-                        onClick={() => {
-                          addToCart(item);
-                        }}
-                      >
-                        Add to cart
-                      </p>
-                      {item.bestseller ? (
-                        <p className="bg-white text-black absolute top-0 left-0 text-xs px-3 py-1.5">
-                          Best Seller
+                  return (
+                    <div
+                      key={item.docId}
+                      className={`w-full md:max-w-[250px] ${
+                        !isLast ? "md:mr-12" : ""
+                      }`}
+                      onMouseEnter={() => handleShowingATC(true, index)}
+                      onMouseLeave={() => handleShowingATC(false, index)}
+                    >
+                      <div className="w-full h-[300px] relative mb-2">
+                        <Image
+                          src={item.image.src}
+                          layout="fill"
+                          objectFit="cover"
+                          alt={item.image.alt}
+                          // unoptimized
+                        />
+                        <p
+                          aria-roledescription="button"
+                          className={`${
+                            showATC.action && showATC.index === index
+                              ? "block"
+                              : "hidden"
+                          } absolute bg-black text-white left-0 right-0 text-center uppercase font-thin bottom-0 py-1 cursor-pointer`}
+                          onClick={() => {
+                            addToCart(item);
+                          }}
+                        >
+                          Add to cart
                         </p>
-                      ) : null}
+                        {item.bestseller ? (
+                          <p className="bg-white text-black absolute top-0 left-0 text-xs px-3 py-1.5">
+                            Best Seller
+                          </p>
+                        ) : null}
+                      </div>
+                      <p className="text-sm text-grey-100 capitalize">
+                        {item.category}
+                      </p>
+                      <p className="text-lg capitalize">{item.name}</p>
+                      <p className="text-base text-grey-100 font-thin">
+                        {i18nCurrencyFormat(item.price, item.currency)}
+                      </p>
                     </div>
-                    <p className="text-sm text-grey-100 capitalize">
-                      {item.category}
-                    </p>
-                    <p className="text-lg capitalize">{item.name}</p>
-                    <p className="text-base text-grey-100 font-thin">
-                      {i18nCurrencyFormat(item.price, item.currency)}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="min-h-[500px] flex items-center justify-center">
+                <p className="text-center">No Products left!</p>
+              </div>
+            )}
             <div className="mt-16 mb-8">
               <ul className="flex gap-2 w-full justify-center items-center">
-                <VectorLeft className="w-2.5 h-2.5 self-center" />
-                <li className="cursor-pointer">1</li>
-                <li className="cursor-pointer">2</li>
-                <li className="cursor-pointer">3</li>
-                <li className="cursor-pointer">4</li>
-                <VectorRight
-                  className="w-2.5 h-2.5 self-center"
+                <button className="self-center " onClick={handlePrev}>
+                  <VectorLeft className="w-2.5 h-2.5" />
+                </button>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <button
+                  className={`self-center  ${
+                    products?.length < 6
+                      ? "text-grey-200 cursor-not-allowed"
+                      : "cursor-pointer"
+                  }`}
                   onClick={handleNext}
-                />
+                >
+                  <VectorRight
+                    className="w-2.5 h-2.5 self-center"
+                    onClick={handleNext}
+                  />
+                </button>
               </ul>
             </div>
           </div>
