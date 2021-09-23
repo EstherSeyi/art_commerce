@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import queryString from "query-string";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const computeFilter = (
   filterValue: string,
@@ -45,7 +45,6 @@ const computeFilter = (
 };
 
 const FilterSection = () => {
-  // const [checked, setChecked] = useState(false);
   const [checkedFilters, setCheckedFilters] = useState<{
     [category: string]: string[];
     price: string[];
