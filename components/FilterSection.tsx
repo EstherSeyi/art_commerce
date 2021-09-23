@@ -50,6 +50,14 @@ const computeFilter = (
 };
 
 const FilterSection = () => {
+  return (
+    <div className="hidden md:block md:flex-20">
+      <FilterInner />
+    </div>
+  );
+};
+
+export const FilterInner = () => {
   const [checkedFilters, setCheckedFilters] = useState<{
     [category: string]: string[];
     price: string[];
@@ -88,14 +96,18 @@ const FilterSection = () => {
       shallow: true,
     });
   };
-
   return (
-    <div className="hidden md:block md:flex-20">
+    <>
       <div className="mb-6">
         <p className="mb-4">Category</p>
         {categoryFilter.map((category, index) => (
-          <label className="flex items-center mb-3" key={category}>
+          <label
+            className="flex items-center mb-3"
+            htmlFor={category}
+            key={category}
+          >
             <input
+              id={category}
               type="checkbox"
               className="mr-2"
               onChange={(e) =>
@@ -112,8 +124,9 @@ const FilterSection = () => {
       <div className="mt-4 border-t border-grey-50 pt-6">
         <p className="mb-4">Price Rage</p>
         {priceRangeFilter.map((range, index) => (
-          <label className="flex items-center mb-3" key={range}>
+          <label htmlFor={range} className="flex items-center mb-3" key={range}>
             <input
+              id={range}
               type="checkbox"
               className="mr-2"
               onChange={(e) =>
@@ -125,7 +138,7 @@ const FilterSection = () => {
           </label>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
