@@ -11,33 +11,12 @@ const computeFilter = (
   const newValue = filterValue.toLowerCase();
 
   if (field === "price") {
-    if (newValue === "lower than $20") {
-      return queryString.stringify({
-        ...query,
-        _start: 0,
-        price_lt: 20,
-      });
-    } else if (newValue === "$20 - $100") {
-      return queryString.stringify({
-        ...query,
-        _start: 0,
-        price_gte: 20,
-        price_lte: 100,
-      });
-    } else if (newValue === "$100 - $200") {
-      return queryString.stringify({
-        ...query,
-        _start: 0,
-        price_gte: 100,
-        price_lte: 200,
-      });
-    } else {
-      return queryString.stringify({
-        ...query,
-        _start: 0,
-        price_gte: 200,
-      });
-    }
+    return queryString.stringify({
+      ...query,
+      _start: 0,
+      price_gte: 20,
+      price_lte: 100,
+    });
   } else {
     return queryString.stringify({
       ...query,
@@ -152,11 +131,6 @@ const categoryFilter = [
   "nature",
 ];
 
-const priceRangeFilter = [
-  "Lower than $20",
-  "$20 - $100",
-  "$100 - $200",
-  "More than $200",
-];
+const priceRangeFilter = ["$20 - $100"];
 
 export default FilterSection;
