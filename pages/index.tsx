@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import queryString from "query-string";
 
 import FeatureItem from "../components/FeatureItem";
 import FilterSection from "../components/FilterSection";
-import FilterModal from "../components/FilterModal";
 import SortIcon from "../assets/sort.svg";
 import Filter from "../assets/filter.svg";
 import VectorLeft from "../assets/vector-left.svg";
@@ -19,6 +19,8 @@ import request from "../lib/request";
 import { Cart } from "../types/cart";
 
 import nocontent from "../public/nocontent.png";
+
+const FilterModal = dynamic(() => import("../components/FilterModal"));
 
 const getPage = (start = 0) => {
   return start / 6;
