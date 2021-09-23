@@ -35,6 +35,7 @@ const FeatureItem = () => {
             layout="fill"
             objectFit="cover"
             alt={data?.data?.[0].image.alt}
+            sizes="250px"
           />
           <p className="bg-white text-black px-4 py-2 md:px-6 md:py-3 absolute bottom-0 left-0 text-sm">
             Photo of the day
@@ -66,6 +67,7 @@ const FeatureItem = () => {
                     layout="fill"
                     objectFit="cover"
                     alt={item.image.alt}
+                    sizes="100px"
                   />
                 </div>
               );
