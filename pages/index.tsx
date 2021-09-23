@@ -60,6 +60,7 @@ export default function Home() {
     query.price_lt,
     query.price_lte,
     query.price_gte,
+    query,
   ]);
 
   const { data, isLoading } = useQuery(`products_${queryStringValue}`, () =>
