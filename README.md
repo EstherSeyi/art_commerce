@@ -1,29 +1,64 @@
-# Next.js + Tailwind CSS Example
+<!-- Please update value in the {}  -->
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<h1 align="center">Art Commerce</h1>
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+<div align="center">
+  <h3>
+    <a href="https://art-commerce-psi.vercel.app/">
+      Demo
+    </a>
+  
+  </h3>
+</div>
 
-## Preview
+<!-- TABLE OF CONTENTS -->
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Table of Contents
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- [Overview](#overview)
+  - [Built With](#built-with)
+- [Features](#features)
+- [How to use](#how-to-use)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 
-## Deploy your own
+<!-- OVERVIEW -->
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Overview
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+![screenshot mobile view](https://res.cloudinary.com/estherseyi/image/upload/v1632374204/bejamas_assessment/rnzgn9bvmskxiygzgp5w.png)
+![screenshot desktop view](https://res.cloudinary.com/estherseyi/image/upload/v1632374202/bejamas_assessment/koj5loio4lvvi6zjvmch.png)
+Demo site can be found [here](https://art-commerce-psi.vercel.app/). This has been a fun project to build so far.
 
-## How to use
+### Built With
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ReactQuery](https://react-query.tanstack.com/)
+
+## How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+# Clone this repository
+$ git clone https://github.com/EstherSeyi/art_commerce.git
+
+# Install dependencies
+$ yarn
+
+# Run the app
+$ yarn run dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Contact
+
+- Website [Esther Ogundijo](https://www.estherogundijo.rocks)
+- GitHub [EstherSeyi](https://github.com/EstherSeyi)
+
+## Special Mentions
+
+- Images were gotten from [Pexels](https://www.pexels.com/search/lifestyle/).
+- API is powered by [strapi](https://strapi.io/).
