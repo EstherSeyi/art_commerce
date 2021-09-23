@@ -84,6 +84,7 @@ const CartSection = ({
               </div>
               <div className="w-[50px] h-[50px]  relative">
                 <Image
+                  className="absolute"
                   layout="fill"
                   objectFit="cover"
                   alt={item?.image?.alt}

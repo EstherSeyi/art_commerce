@@ -6,6 +6,7 @@ import queryString from "query-string";
 
 import FeatureItem from "../components/FeatureItem";
 import FilterSection from "../components/FilterSection";
+import FilterModal from "../components/FilterModal";
 import SortIcon from "../assets/sort.svg";
 import Filter from "../assets/filter.svg";
 import VectorLeft from "../assets/vector-left.svg";
@@ -13,6 +14,7 @@ import VectorRight from "../assets/vector-right.svg";
 
 import { i18nCurrencyFormat } from "../helpers/format-curency";
 import useCart from "../custom-hooks/use-cart";
+import { useModal } from "../custom-hooks/use-modal";
 import request from "../lib/request";
 import { Cart } from "../types/cart";
 
@@ -23,6 +25,7 @@ const getPage = (start = 0) => {
 };
 
 export default function Home() {
+  const { handleModal } = useModal();
   const { query, push, pathname } = useRouter();
   const { addToCart } = useCart();
   const [showATC, setShowATC] = useState<{
@@ -128,8 +131,12 @@ export default function Home() {
               </select>
             </div>
           </div>
-
-          <Filter className="w-6 h-6 md:hidden" />
+          <button
+            className="md:hidden"
+            onClick={() => handleModal(<FilterModal />)}
+          >
+            <Filter className="w-6 h-6" />
+          </button>
         </div>
 
         <div className="flex md:justify-between">
@@ -164,6 +171,7 @@ export default function Home() {
                     >
                       <div className="w-full h-[300px] relative mb-2">
                         <Image
+                          className="absolute"
                           src={item.image.src ?? nocontent}
                           layout="fill"
                           objectFit="cover"

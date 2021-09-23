@@ -30,6 +30,7 @@ const FeatureItem = () => {
       <div>
         <div className="w-full h-[200px] md:h-[400px] relative">
           <Image
+            className="absolute"
             src={data?.data[0].image.src ?? nocontent}
             layout="fill"
             objectFit="cover"
@@ -60,6 +61,7 @@ const FeatureItem = () => {
                   key={`${item.name}_${index}`}
                 >
                   <Image
+                    className="absolute"
                     src={item.image.src ?? nocontent}
                     layout="fill"
                     objectFit="cover"
