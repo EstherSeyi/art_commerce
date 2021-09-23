@@ -55,7 +55,10 @@ const FeatureItem = () => {
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-2.5 md:gap-2">
             {data?.data?.map((item: Cart, index: number) => {
               return index === 0 ? null : (
-                <div className="w-full h-[150px] relative mr-4">
+                <div
+                  className="w-full h-[150px] relative mr-4"
+                  key={`${item.name}_${index}`}
+                >
                   <Image
                     src={item.image.src ?? nocontent}
                     layout="fill"
