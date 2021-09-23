@@ -7,7 +7,8 @@
     "cypress": "cypress open",
     "test": "start-server-and-test dev http://localhost:3000 cypress",
     "cypress:headless": "cypress run",
-    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless"
+    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless",
+    "lint": "next lint"
   },
   "dependencies": {
     "axios": "^0.21.4",
@@ -22,6 +23,8 @@
     "@types/react": "^17.0.22",
     "autoprefixer": "^10.2.6",
     "cypress": "^8.4.1",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
     "postcss": "^8.3.5",
     "start-server-and-test": "^1.14.0",
     "tailwindcss": "^2.2.4",
