@@ -6,6 +6,7 @@ import queryString from "query-string";
 
 import FeatureItem from "../components/FeatureItem";
 import FilterSection from "../components/FilterSection";
+import FilterModal from "../components/FilterModal";
 import SortIcon from "../assets/sort.svg";
 import Filter from "../assets/filter.svg";
 import VectorLeft from "../assets/vector-left.svg";
@@ -13,6 +14,7 @@ import VectorRight from "../assets/vector-right.svg";
 
 import { i18nCurrencyFormat } from "../helpers/format-curency";
 import useCart from "../custom-hooks/use-cart";
+import { useModal } from "../custom-hooks/use-modal";
 import request from "../lib/request";
 import { Cart } from "../types/cart";
 
@@ -23,6 +25,7 @@ const getPage = (start = 0) => {
 };
 
 export default function Home() {
+  const { handleModal } = useModal();
   const { query, push, pathname } = useRouter();
   const { addToCart } = useCart();
   const [showATC, setShowATC] = useState<{
@@ -47,7 +50,15 @@ export default function Home() {
     query["_start"] = query._start ?? "0";
     query["_sort"] = query._sort ?? "price:ASC";
     setQueryStringValue(`${queryString.stringify(query)}`);
-  }, [query._limit, query._start, query._sort]);
+  }, [
+    query._limit,
+    query._start,
+    query._sort,
+    query.category_in,
+    query.price_lt,
+    query.price_lte,
+    query.price_gte,
+  ]);
 
   const { data, isLoading } = useQuery(`products_${queryStringValue}`, () =>
     request.get(`/products?${queryStringValue}`)
@@ -120,8 +131,12 @@ export default function Home() {
               </select>
             </div>
           </div>
-
-          <Filter className="w-6 h-6 md:hidden" />
+          <button
+            className="md:hidden"
+            onClick={() => handleModal(<FilterModal />)}
+          >
+            <Filter className="w-6 h-6" />
+          </button>
         </div>
 
         <div className="flex md:justify-between">
@@ -146,6 +161,7 @@ export default function Home() {
 
                   return (
                     <div
+                      data-test-id={`store-item_${index}`}
                       key={`${item.name}_${item.id}`}
                       className={`w-full md:max-w-[250px] ${
                         !isLast ? "md:mr-12" : ""
@@ -155,6 +171,7 @@ export default function Home() {
                     >
                       <div className="w-full h-[300px] relative mb-2">
                         <Image
+                          className="absolute"
                           src={item.image.src ?? nocontent}
                           layout="fill"
                           objectFit="cover"
@@ -162,6 +179,7 @@ export default function Home() {
                           // unoptimized
                         />
                         <p
+                          data-test-id="add-storeitem-to-cart"
                           aria-roledescription="button"
                           className={`${
                             showATC.action && showATC.index === index

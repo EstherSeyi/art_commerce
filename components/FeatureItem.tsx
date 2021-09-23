@@ -14,15 +14,15 @@ const FeatureItem = () => {
     request.get(`/products?featured=${true}`)
   );
 
-  console.log(data?.data);
-
   return (
-    <section>
+    <section data-test-id="feature-section">
       <div className="flex justify-between mb-8">
         <h2 className="font-semibold text-3xl">{data?.data?.[0].name}</h2>
         <button
-          className="bg-black py-1 px-4 font-medium hidden md:block"
+          data-test-id="add-to-cart"
+          className="bg-black py-1 px-4 font-medium hidden md:block disabled:cursor-not-allowed"
           onClick={() => addToCart(data?.data?.[0])}
+          disabled={!data?.data?.length}
         >
           <span className="text-xl text-white">ADD TO CART</span>
         </button>
@@ -30,6 +30,7 @@ const FeatureItem = () => {
       <div>
         <div className="w-full h-[200px] md:h-[400px] relative">
           <Image
+            className="absolute"
             src={data?.data[0].image.src ?? nocontent}
             layout="fill"
             objectFit="cover"
@@ -55,8 +56,12 @@ const FeatureItem = () => {
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-2.5 md:gap-2">
             {data?.data?.map((item: Cart, index: number) => {
               return index === 0 ? null : (
-                <div className="w-full h-[150px] relative mr-4">
+                <div
+                  className="w-full h-[150px] relative mr-4"
+                  key={`${item.name}_${index}`}
+                >
                   <Image
+                    className="absolute"
                     src={item.image.src ?? nocontent}
                     layout="fill"
                     objectFit="cover"
