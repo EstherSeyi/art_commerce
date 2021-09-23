@@ -6,7 +6,6 @@ import { useQuery } from "react-query";
 import queryString from "query-string";
 
 import FeatureItem from "../components/FeatureItem";
-import FilterSection from "../components/FilterSection";
 import SortIcon from "../assets/sort.svg";
 import Filter from "../assets/filter.svg";
 import VectorLeft from "../assets/vector-left.svg";
@@ -21,6 +20,7 @@ import { Cart } from "../types/cart";
 import nocontent from "../public/nocontent.png";
 
 const FilterModal = dynamic(() => import("../components/FilterModal"));
+const FilterSection = dynamic(() => import("../components/FilterSection"));
 
 const getPage = (start = 0) => {
   return start / 6;
@@ -178,6 +178,7 @@ export default function Home() {
                           layout="fill"
                           objectFit="cover"
                           alt={item.image.alt}
+                          sizes="150px"
                           // unoptimized
                         />
                         <p
