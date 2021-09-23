@@ -5,12 +5,16 @@ import useCart from "../custom-hooks/use-cart";
 import request from "../lib/request";
 import { Cart } from "../types/cart";
 
+import nocontent from "../public/nocontent.png";
+
 const FeatureItem = () => {
   const { addToCart } = useCart();
 
   const { data } = useQuery("featured-product", () =>
     request.get(`/products?featured=${true}`)
   );
+
+  console.log(data?.data);
 
   return (
     <section>
@@ -26,7 +30,7 @@ const FeatureItem = () => {
       <div>
         <div className="w-full h-[200px] md:h-[400px] relative">
           <Image
-            src={data?.data?.[0].image.src}
+            src={data?.data[0].image.src ?? nocontent}
             layout="fill"
             objectFit="cover"
             alt={data?.data?.[0].image.alt}
@@ -53,7 +57,7 @@ const FeatureItem = () => {
               return index === 0 ? null : (
                 <div className="w-full h-[150px] relative mr-4">
                   <Image
-                    src={item.image.src}
+                    src={item.image.src ?? nocontent}
                     layout="fill"
                     objectFit="cover"
                     alt={item.image.alt}

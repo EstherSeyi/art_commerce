@@ -16,6 +16,8 @@ import useCart from "../custom-hooks/use-cart";
 import request from "../lib/request";
 import { Cart } from "../types/cart";
 
+import nocontent from "../public/nocontent.png";
+
 const getPage = (start = 0) => {
   return start / 6;
 };
@@ -153,7 +155,7 @@ export default function Home() {
                     >
                       <div className="w-full h-[300px] relative mb-2">
                         <Image
-                          src={item.image.src}
+                          src={item.image.src ?? nocontent}
                           layout="fill"
                           objectFit="cover"
                           alt={item.image.alt}
