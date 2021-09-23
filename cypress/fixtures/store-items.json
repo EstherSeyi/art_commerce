@@ -1,0 +1,382 @@
+[
+  {
+    "id": 1,
+    "name": "South American sea lion",
+    "category": "Otaria flavescens",
+    "currency": "CNY",
+    "price": "$7.69",
+    "bestseller": false,
+    "featured": true,
+    "size": "M",
+    "details": "Other contact with rat",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Blue waxbill",
+    "category": "Uraeginthus angolensis",
+    "currency": "EUR",
+    "price": "$4.52",
+    "bestseller": true,
+    "featured": false,
+    "size": "M",
+    "details": "Unsp malignant neoplasm skin/ right upper limb, inc shoulder",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Madagascar hawk owl",
+    "category": "Ninox superciliaris",
+    "currency": "BRL",
+    "price": "$1.75",
+    "bestseller": false,
+    "featured": true,
+    "size": "3XL",
+    "details": "Puncture wound with foreign body of left elbow, subs encntr",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Robin, kalahari scrub",
+    "category": "Certotrichas paena",
+    "currency": "EUR",
+    "price": "$4.38",
+    "bestseller": true,
+    "featured": false,
+    "size": "3XL",
+    "details": "Lacerat intrns musc/fasc/tend l rng fngr at wrs/hnd lv, subs",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Amazon parrot (unidentified)",
+    "category": "Amazona sp.",
+    "currency": "UYU",
+    "price": "$4.95",
+    "bestseller": false,
+    "featured": true,
+    "size": "3XL",
+    "details": "Subluxation of unsp interphaln joint of r mid finger, subs",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Snake, green vine",
+    "category": "Oxybelis fulgidus",
+    "currency": "EUR",
+    "price": "$6.70",
+    "bestseller": false,
+    "featured": true,
+    "size": "M",
+    "details": "Nondisp fx of triquetrum bone, right wrist, init for clos fx",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Lion, southern sea",
+    "category": "Otaria flavescens",
+    "currency": "CNY",
+    "price": "$4.41",
+    "bestseller": false,
+    "featured": false,
+    "size": "L",
+    "details": "Intervertebral disc stenosis of neural canal of head region",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Chameleon (unidentified)",
+    "category": "Chamaelo sp.",
+    "currency": "RUB",
+    "price": "$4.63",
+    "bestseller": false,
+    "featured": true,
+    "size": "2XL",
+    "details": "Person on outside of military vehicle injured nontraf, subs",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Columbian rainbow boa",
+    "category": "Epicrates cenchria maurus",
+    "currency": "USD",
+    "price": "$4.53",
+    "bestseller": false,
+    "featured": false,
+    "size": "XL",
+    "details": "Unspecified corneal edema",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Spotted-tailed quoll",
+    "category": "Dasyurus maculatus",
+    "currency": "IDR",
+    "price": "$9.13",
+    "bestseller": false,
+    "featured": true,
+    "size": "3XL",
+    "details": "Pnctr w foreign body of unsp finger w/o damage to nail",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Crested bunting",
+    "category": "Melophus lathami",
+    "currency": "RUB",
+    "price": "$6.10",
+    "bestseller": false,
+    "featured": false,
+    "size": "2XL",
+    "details": "Inj great saphenous at lower leg level, right leg, subs",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Squirrel, uinta ground",
+    "category": "Spermophilus armatus",
+    "currency": "CNY",
+    "price": "$1.39",
+    "bestseller": true,
+    "featured": true,
+    "size": "L",
+    "details": "Acute dacryocystitis of right lacrimal passage",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Osprey",
+    "category": "Pandon haliaetus",
+    "currency": "IDR",
+    "price": "$6.07",
+    "bestseller": false,
+    "featured": true,
+    "size": "M",
+    "details": "Oth neoplm of uncrt behav of lymphoid, hematpoetc & rel tiss",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Wallaby, tammar",
+    "category": "Macropus eugenii",
+    "currency": "BND",
+    "price": "$4.48",
+    "bestseller": true,
+    "featured": true,
+    "size": "M",
+    "details": "Complete traumatic trnsphal amputation of right thumb, subs",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 15,
+    "name": "African jacana",
+    "category": "Actophilornis africanus",
+    "currency": "EUR",
+    "price": "$7.70",
+    "bestseller": false,
+    "featured": true,
+    "size": "2XL",
+    "details": "Corrosion of first degree of right wrist, initial encounter",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Seal, southern elephant",
+    "category": "Mirounga leonina",
+    "currency": "PKR",
+    "price": "$7.63",
+    "bestseller": false,
+    "featured": true,
+    "size": "M",
+    "details": "Other congenital malformations of abdominal wall",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Echidna, short-beaked",
+    "category": "Tachyglossus aculeatus",
+    "currency": "IRR",
+    "price": "$8.54",
+    "bestseller": true,
+    "featured": true,
+    "size": "2XL",
+    "details": "Toxic effect of cyanides, assault, subsequent encounter",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Bird, red-billed tropic",
+    "category": "Phaethon aethereus",
+    "currency": "ZAR",
+    "price": "$3.96",
+    "bestseller": true,
+    "featured": true,
+    "size": "L",
+    "details": "Prosth/oth implants, matrl and neuro devices assoc w incdt",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Antelope, four-horned",
+    "category": "Tetracerus quadricornis",
+    "currency": "RUB",
+    "price": "$3.44",
+    "bestseller": true,
+    "featured": true,
+    "size": "L",
+    "details": "Partial androgen insensitivity syndrome",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Partridge, coqui",
+    "category": "Francolinus coqui",
+    "currency": "ISK",
+    "price": "$6.92",
+    "bestseller": false,
+    "featured": false,
+    "size": "2XL",
+    "details": "Adverse effect of methadone, sequela",
+    "image": {
+      "src": "https://res.cloudinary.com/estherseyi/image/upload/v1632246621/bejamas_assessment/oeoqmi8edxhlmkd9cyax.jpg",
+      "alt": "South American sea lion"
+    },
+    "dimension": {
+      "width": "1020px",
+      "height": "1020px"
+    }
+  }
+]
