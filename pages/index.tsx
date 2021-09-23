@@ -47,7 +47,15 @@ export default function Home() {
     query["_start"] = query._start ?? "0";
     query["_sort"] = query._sort ?? "price:ASC";
     setQueryStringValue(`${queryString.stringify(query)}`);
-  }, [query._limit, query._start, query._sort]);
+  }, [
+    query._limit,
+    query._start,
+    query._sort,
+    query.category_in,
+    query.price_lt,
+    query.price_lte,
+    query.price_gte,
+  ]);
 
   const { data, isLoading } = useQuery(`products_${queryStringValue}`, () =>
     request.get(`/products?${queryStringValue}`)
