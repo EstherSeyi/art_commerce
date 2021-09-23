@@ -14,29 +14,34 @@ const computeFilter = (
     if (newValue === "lower than $20") {
       return queryString.stringify({
         ...query,
+        _start: 0,
         price_lt: 20,
       });
     } else if (newValue === "$20 - $100") {
       return queryString.stringify({
         ...query,
+        _start: 0,
         price_gte: 20,
         price_lte: 100,
       });
     } else if (newValue === "$100 - $200") {
       return queryString.stringify({
         ...query,
+        _start: 0,
         price_gte: 100,
         price_lte: 200,
       });
     } else {
       return queryString.stringify({
         ...query,
+        _start: 0,
         price_gte: 200,
       });
     }
   } else {
     return queryString.stringify({
       ...query,
+      _start: 0,
       category_in: checkedFilters.category.map((item: any) => {
         return item;
       }),
