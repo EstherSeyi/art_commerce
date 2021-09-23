@@ -22,11 +22,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex justify-between w-11/12 sm:w-10/12 max-w-[1440px] mx-auto border-b border-grey-50 pb-3 relative">
           <Logo className="w-20" />
           <div className="relative">
-            <button type="button" onClick={() => setCartOpen(true)}>
+            <button
+              type="button"
+              onClick={() => setCartOpen(true)}
+              data-test-id="cart-button"
+            >
               <Cart className="w-4 sm:w-6" />
             </button>
 
-            <span className="text-white bg-black text-center absolute px-1 -right-1 -bottom-0.5 text-[7px] sm:text-[9px]">
+            <span
+              data-test-id="total-cart-items"
+              className="text-white bg-black text-center absolute px-1 -right-1 -bottom-0.5 text-[7px] sm:text-[9px]"
+            >
               {cart?.total ?? 0}
             </span>
           </div>
@@ -56,6 +63,7 @@ const CartSection = ({
   // useClickOutside(cartRef, () => cartOpen && setCartOpen(false));
   return (
     <div
+      data-test-id="cart-section"
       className={`${
         !cartOpen ? "hidden" : "block"
       } absolute bg-white p-6 border border-grey-50 z-[2] right-0 top-7 sm:top-[37px]`}
@@ -66,20 +74,20 @@ const CartSection = ({
           {cart?.items?.map((item, index) => (
             <li
               className="flex pb-2 mb-2 border-b border-grey-50 justify-between"
-              key={`${item.name}_${index}`}
+              key={`${item?.name}_${index}`}
             >
               <div className="mr-4">
                 <p>{item.name}</p>
                 <p className="font-light text-grey-100">
-                  {i18nCurrencyFormat(item.price)}
+                  {i18nCurrencyFormat(item?.price)}
                 </p>
               </div>
               <div className="w-[50px] h-[50px]  relative">
                 <Image
                   layout="fill"
                   objectFit="cover"
-                  alt={item.image.alt}
-                  src={item.image.src}
+                  alt={item?.image?.alt}
+                  src={item?.image?.src}
                 />
               </div>
             </li>
@@ -89,6 +97,7 @@ const CartSection = ({
         <p className="text-grey-50 text-center py-2">No items yet</p>
       )}
       <button
+        data-test-id="clear-cart-button"
         className="w-full border-2 border-black py-2"
         type="button"
         onClick={() => {
