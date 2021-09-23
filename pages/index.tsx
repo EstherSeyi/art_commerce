@@ -146,6 +146,7 @@ export default function Home() {
 
                   return (
                     <div
+                      data-test-id={`store-item_${index}`}
                       key={`${item.name}_${item.id}`}
                       className={`w-full md:max-w-[250px] ${
                         !isLast ? "md:mr-12" : ""
@@ -162,6 +163,7 @@ export default function Home() {
                           // unoptimized
                         />
                         <p
+                          data-test-id="add-storeitem-to-cart"
                           aria-roledescription="button"
                           className={`${
                             showATC.action && showATC.index === index
